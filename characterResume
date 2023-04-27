@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이력서</title>
+</head>
+<body>
+<table border="1">
+	<tr>
+		<th width="100%" height="50" bgcolor="#bff07d" colspan="5">이력서</th>
+	</tr>
+	<tr>
+		<td width="200" height="200" rowspan="2"><img src="flash.jpg" width="300" height="300"></td>
+		<td width="70" bgcolor="#fcf368" align="center"><b>이름</b></td>
+		<td width="180" align="center">플래시 슬로스모어(Flash Slothmore)</td>
+		<td width="70" bgcolor="#fcf368" align="center"><b>동물</b></td>
+		<td width="120" align="center">나무늘보</td>
+	</tr>
+	<tr>
+		<td width="70" bgcolor="#fcf368" align="center"><b>소속</b></td>
+		<td width="180" align="center">포유류 차랑국(DMV) 공무원</td>
+		<td width="70" bgcolor="#fcf368" align="center"><b>거주지</b></td>
+		<td width="120" align="center">주토피아</td>
+	</tr>
+	<tr>
+		<td bgcolor="#fcf368" height="80" align="center"><b>특이사항</b></td>
+		<td colspan="4"><em>사바나 시티에서 시속 185km로 운전하다 적발됨</em></td>
+	</tr>
+	<tr>
+		<td bgcolor="#fcf368" height="150" align="center"><b>주토피아 소개</b><br><a href ="https://www.imdb.com/title/tt2948356/" target="_blank">더 보기</a></td>
+		<td colspan="4">주토피아는 <cite>다양한 동물들이 사는 '동물원' 혹은 '동물의'를 뜻하는 'Zoo'와 '유토피아(Utopia)'의 합성어</cite>이다.<br> 영장류를 제외한 지상 포유류만 집중적으로 거주하며, 파충류, 양서류, 조류는 다른 대륙에 존재한다.<br> 시간적 배경은 현대이다. 따라서 건물들의 구조가 현대적이며, 스마트폰이나 전철같은 기술도 있고, 동물들의 옷차림이나 사회 조직들 역시 현대적이다. 경찰도 있고 자동차국도 있으며 세금도 있다.<br> 주토피아시는 열대우림 구역, 툰드라 타운, 다운 타운, 사하라 광장, 캐니언밸리등의 12가지 구역으로 구성되어 있으며 이런 다양한 생태계는 기계문명의 힘으로 유지된다.</td>
+	</tr>
+	<tr>
+		<td bgcolor="#fcf368" align="center"><b>주토피아 지도</b></td>
+		<td colspan="4"><img src="../files/지도.jpg"></td>
+	</tr>
+</table>
+</body>
+</html>
