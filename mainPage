@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>에드워드 호퍼: 길 위에서</title>
+<style type="text/css">
+	/*기본 설정*/
+	*{
+		margin:0;
+		padding:0;
+		font-family:맑은 고딕, sans-serif;
+	}
+	a{
+		text-decoration:none;
+	}
+	ul{
+		list-style:none;
+	}
+	
+	/*페이지 구성*/
+	body{
+		width:1300px;
+		margin:0 auto;
+		background:#f7f5f7;
+	}
+	#wrap{
+		background:#f7f5f7;
+		margin:40px 0;
+		padding:10px 20px;
+	}
+		
+	/*헤더*/
+	#main_header{
+		padding:50px 70px;
+	}
+	.title{
+		font-size:40px;
+		color:#1c1b1c;
+	}
+	.date{
+		font-size:20px;
+		font-weight:500;
+		color:#1c1b1c;
+	}	
+	
+	/*내비게이션 구성*/
+	#main_nav{
+		border-bottom:3px solid #1c1b1c;
+		margin-bottom:30px;
+		height:60px;
+	}
+	.pull-left{
+		float:left;
+	}
+	.pull-right{
+		float:right;
+	}
+	.outer-menu-item{
+		float:left;
+		position:relative;
+	}
+	.outer-menu-item:hover{
+		background:#99ccc4;
+		color:black;
+	}
+	.outer-menu-item:hover .inner-menu{ 
+		display:block; 
+	}
+	
+	/*상위 메뉴*/
+	.menu-title{
+		display:block;
+		height:20px;
+		line-height:25px;
+		text-align:center;
+		padding:8px 15px;
+	}
+	
+	/*하위 메뉴*/
+	.inner-menu{
+		display:none;
+		position:absolute;
+		top:40px;
+		left:0;
+		width:100%;
+		background-color:#56d1ba;
+		z-index:1000;
+		text-align:center;
+	}
+	
+	/*하위 메뉴 링크에 스타일 적용*/
+	.inner-menu-item > a{
+		display:block;
+		padding:5px 10px;
+		color:black;
+	}
+	.inner-menu-item > a:hover{
+		background:#d1e6e2;
+		color:black;
+	}
+	
+	/*검색 양식*/
+	.search-bar{
+		height:26px;
+		padding:7px;
+	}
+	.input-search{
+		display:block;
+		float:left;
+		background-color:#FFF;
+		border:1px solid #CCC;
+		border-radius:3px 0 0 3px;
+		width:180px;
+		height:26px;
+		padding:0 0 0 10px;
+		font-size:12px;
+		color:#5d6664;
+	}
+	.input-search:focus{
+		border-color:#75807d;
+		outline:0;
+	}
+	.input-search-submit{
+		width:70px;
+		height:26px;
+		border-radius:0 3px 3px 0;
+		border:1px solid #CCC;
+		margin-left:-1px;
+	}
+	
+	/*본문 스타일*/
+	#main_section{
+		width:910px;
+		
+		padding:30px;
+	}
+	
+	/*본문 내용 스타일*/
+	article{
+		padding:0 10px 20px 10px;
+		border-bottom:1px solid #c8c8c8;
+		height:700px;
+	}
+	.article-header{
+		padding:20px 0;
+	}
+	.article-title{
+		font-size:25px;
+		font-weight:500;
+		padding-bottom:10px;
+	}
+	.article-body{
+		font-size:18px;
+	}
+	.photo{
+		float:right;
+	}
+	.photo p{
+		font-size:10px;
+		margin-bottom:10px;
+	}
+	.point-list{
+		float:left;
+		margin:5px 0 100px 0;
+	}
+	.point{
+		font-size:18px;
+		padding: 10px 5px;
+		margin-bottom:15px;
+	}
+	.photo-collection2{
+		float:right;
+	}
+	.photo-collection2 p{
+		font-size:10px;
+	} 
+	/*꼬리말*/
+	#main_footer{
+		width:100%;
+		height:100px;
+		padding:5px;
+		margin:5px;
+	}
+	.footer-title{
+		font-size:15px;
+	}
+	.footer-info{
+		font-size:12px;
+		padding:3px;
+		margin:5px;
+	}
+	
+	/*커서 처리*/
+	.outer-menu-item, .input-search-submit{
+		cursor:pointer;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<header id="main_header">
+			<hgroup>
+				<h1 class="title">에드워드 호퍼 : 길 위에서</h1>
+				<h3 class="date">2023. 04. 20. - 2023. 08. 20.</h3>
+			</hgroup>
+		</header>
+		<nav id="main_nav">
+			<!-- 메뉴 시작 -->
+			<div class="pull-left">
+				<ul class="outer-menu">
+					<!-- 1번 메뉴 -->
+					<li class="outer-menu-item">
+						<span class="menu-title"><i><b>전시 소개</b></i></span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">작개 소개</a></li>
+								<li class="inner-menu-item"><a href="#">작품 목록</a></li>
+							</ul>
+					</li>
+					<!-- 2번 메뉴 -->
+					<li class="outer-menu-item">
+						<span class="menu-title"><i><b>전시 예매</b></i></span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">관람료</a></li>
+								<li class="inner-menu-item"><a href="#">예매하기</a></li>
+								<li class="inner-menu-item"><a href="#">도슨트</a></li>
+							</ul>
+					</li>
+					<!-- 2번 메뉴 -->
+					<li class="outer-menu-item">
+						<span class="menu-title"><i><b>관련 프로그램</b></i></span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">관련 프로그램</a></li>
+								<li class="inner-menu-item"><a href="#">관련 전시</a></li>
+								<li class="inner-menu-item"><a href="#">관련 출판물</a></li>
+							</ul>
+					</li>
+					<!-- 4번 메뉴 -->
+					<li class="outer-menu-item">
+						<span class="menu-title"><i><b>오시는 길</b></i></span>
+							<ul class="inner-menu">
+								<li class="inner-menu-item"><a href="#">약도</a></li>
+								<li class="inner-menu-item"><a href="#">안내</a></li>
+							</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- 메뉴 끝 -->
+			<!-- 검색 기능 시작 -->
+			<div class="pull-right">
+				<div class="search-bar">
+					<form>
+						<input type="search" class="input-search">
+						<input type="submit" class="input-search-submit" value="검색">
+					</form>
+				</div>
+			</div>
+			<!-- 검색 기능 끝 -->
+		</nav>
+		<!-- 본문 -->
+		<div>
+			<section id="main_section">
+				<!-- 1번 섹션 -->
+				<article>
+					<div class="article-header">
+						<h1 class="article-title"><b>EDWARD HOPPER</b></h1>
+					</div>
+					<div class="article-body">
+						<img src="../files/hopper.jpg" width="400" height="500">
+						<br><br>
+						<p><i>내면을 그리는 화가, 세기를 넘는 공감</i></p>
+						<br>
+						<p>20세기 미국 현대미술사 대표 작가의 국내 첫 대규모 전시</p>
+					</div>
+				</article>
+				<!-- 2번 섹션 -->
+				<article>
+					<div class="article-header">
+						<h1 class="article-title"><b>주요 포인트</b></h1>
+					</div>
+					<div class="article-body">
+						<div class="photo">
+							<img src="../files/roomsbythesea.jpg" width="350" height="250">
+							<p><b>Rooms by the sea, 1951</b></p>
+						</div>
+						<ul class="point-list">
+							<li class="point">작품, 아카이브 270여 점, 전 층에 구성되는 대규모 전시</li>
+							<li class="point">'철길의 석양'(1929)을 제외한 전 작품 국내 최초 공개</li>
+							<li class="point">최신 다큐멘터리 '호퍼: 아메리칸 러브스토리'(2022) 상영</li>
+							<li class="point">그림 너머에 대한 상상</li>
+							<li class="point">나만의 시각으로 채우는 개인적인 감상의 경험</li>
+							<li class="point">'이층에 내리는 햇빛'(1960) 등 소개</li>
+						</ul>
+						<div class=photo-collection2>
+							<img src="../files/hopper2.jpg" width="350" height="250">
+							<p><b>Cobb’s Barns and Distant Houses, 1930–1933</b></p>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+		<!-- 꼬리말 -->
+		<footer id="main_footer">
+			<h5 class="footer-title">서울시립미술관</h5>
+			<ul>
+				<li class="footer-info">서울 중구 덕수궁길 61</li>
+				<li class="footer-info">02–2124–8800</li>
+				<li class="footer-info">매주 월요일 휴관, 정기휴관(1월 1일)</li>
+			</ul>
+		</footer>
+	</div>
+</body>
+</html>
