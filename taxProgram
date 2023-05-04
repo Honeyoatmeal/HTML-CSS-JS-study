@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tax</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+[실습]
+이름     수입       지출       세금(5%, getTax)  잔액(세금 공제, getBalance)
+청포도    3000      2500     
+양상추    5000      1100
+어성초    4000      3500
+토마토    7000      4200
+*/
+	const members = [];
+	// 배열에 객체 추가
+	members.push({이름: '청포도', 수입: 3000, 지출: 2500});
+	members.push({이름: '양상추', 수입: 5000, 지출: 1100});
+	members.push({이름: '어성초', 수입: 4000, 지출: 3500});
+	members.push({이름: '토마토', 수입: 7000, 지출: 4200});
+	// 배열에 메서드 추가
+	for (let i in members) {
+		members[i].getTax = function() {
+			return this.수입 * 0.05;	
+		};
+		
+		members[i].getBalance = function() {
+			return this.수입 - (this.지출 + this.getTax());
+		};
+	}
+	// 출력
+	let output = '이름, 수입, 지출, 세금, 잔액<br>';
+	for (let i in members) {
+		output += members[i].이름 + ', ' + members[i].수입 + ', ' + members[i].지출 + ', ' + members[i].getTax() + ', ' + members[i].getBalance() + '<br>';
+	}
+	document.write(output);
+</script>
+</body>
+</html>
