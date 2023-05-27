@@ -1,0 +1,176 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import kr.employee.vo.EmployeeVO;
+import kr.util.DBUtil;
+
+public class EmployeeDAO {
+	private static EmployeeDAO instance = new EmployeeDAO();
+	public static EmployeeDAO getInstance() {
+		return instance;
+	}
+	private EmployeeDAO() {} // 생성자 private
+	
+	// 회원가입
+	public void insertMember(EmployeeVO member) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "INSERT INTO semployee (num, id, name, passwd, salary, job, reg_date) VALUES (smember_seq.nextval, ?, ?, ?, ?, ?, SYSDATE)";
+			
+			// PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setString(1, member.getId()); // 자바빈에 담겨온 것을 뽑아냄
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getPasswd());
+			pstmt.setInt(4, member.getSalary());
+			pstmt.setString(5, member.getJob());
+			
+			// SQL문 실행
+			pstmt.executeUpdate();
+		} catch(Exception e){
+			// 다시 예외를 던져 JSP 예외가 발생한 것처럼
+			throw new Exception(e);
+		} finally{
+			// 자원 정리
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
+	// 회원 상세정보
+	public EmployeeVO getMember(int num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO member = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "SELECT * FROM semployee WHERE num = ?";
+			
+			// PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setInt(1, num);
+			
+			// SQL문 실행
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				member = new EmployeeVO(); // 담는 범위는 상관 없음
+				member.setNum(rs.getInt("num"));
+				member.setId(rs.getString("id"));
+				member.setPasswd(rs.getString("passwd"));
+				member.setName(rs.getString("name"));
+				member.setSalary(rs.getInt("salary"));
+				member.setJob(rs.getString("job"));
+				member.setReg_date(rs.getDate("reg_date"));
+			}
+		} catch(Exception e){
+			throw new Exception(e);
+		} finally{
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return member;
+	}
+	
+	// 아이디 중복 체크, 로그인 체크
+	public EmployeeVO checkMember(String id) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		EmployeeVO member = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "SELECT * FROM semployee WHERE id = ?";
+			
+			// PreparedStatment 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setString(1, id);
+			
+			// SQL문 실행
+			rs = pstmt.executeQuery();
+			if (rs.next()){ // 데이터가 없으면 null, 있으면 자바빈에 담아줌
+				member = new EmployeeVO();
+				member.setId(rs.getString("id"));
+				member.setNum(rs.getInt("num"));
+				member.setPasswd(rs.getString("passwd"));
+			}
+		} catch(Exception e){
+			throw new Exception(e);
+		} finally{
+			// 자원 정리
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return member;
+	}
+	
+	// 회원정보 수정
+	public void updateMember(EmployeeVO member) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "UPDATE semployee SET name = ?, passwd = ?, salary = ?, job = ? WHERE num = ?";
+			
+			// PreparedStatment 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPasswd());
+			pstmt.setInt(3, member.getSalary());
+			pstmt.setString(4, member.getJob());
+			pstmt.setInt(5, member.getNum());
+			
+			// SQL문 실행
+			pstmt.executeUpdate();
+		} catch(Exception e){
+			throw new Exception(e);
+		} finally{
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
+	// 회원 탈퇴(회원정보 삭제)
+	public void deleteMember(int num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			// 커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "DELETE FROM semployee WHERE num = ?";
+			// PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			// ?에 데이터 바인딩
+			pstmt.setInt(1, num);
+			// SQL문 반영
+			pstmt.executeUpdate();
+		} catch(Exception e){
+			throw new Exception(e);
+		} finally{
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+}
